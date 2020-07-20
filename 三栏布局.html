@@ -1,0 +1,90 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: Dominique Wei
+ * @Date: 2020-02-29 22:54:48
+ * @LastEditTime: 2020-04-06 13:02:17
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*flex*/
+        .outer .left,.middle,.right{
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .outer .left{
+            background: tomato;
+        }
+        .outer .middle{
+            background: turquoise;
+        }
+        .outer .right{
+            background: gold;
+        }
+        /* flex */
+        .outer1{
+            display: flex;
+        }
+        .outer1 .left,.right{
+            flex-basis: 200px;
+        }
+        .outer1 .middle{
+            flex:auto
+        }
+        /* 两边相对绝对position */
+        .outer2{
+            position: relative;
+        }
+        .outer2 .left{
+            position: absolute;
+            width: 200px;
+        }
+        .outer2 .right{
+            position: absolute;
+            width: 200px;
+            top: 0;
+            right: 0;
+
+        }
+        .outer2 .middle{
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        /* 浮动布局 但是 html 中 middle要放到最后 */
+        .outer3 .left{
+            float: left;
+            width: 200px;
+        }
+        .outer3 .middle{
+            margin: 0 200px 0 200px;
+        }
+        .outer3 .right{
+            width: 200px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer outer1">
+        <div class="left">1-left</div>
+        <div class="middle">1-middle</div>
+        <div class="right">1-right</div>
+    </div>
+    <div class="outer outer2">
+        <div class="left">2-left</div>
+        <div class="middle">2-middle</div>
+        <div class="right">2-right</div>
+    </div>
+    <!--  浮动布局 但是 html 中 middle要放到最后   -->
+    <div class="outer outer3">
+        <div class="left">3-left</div>
+        <div class="right">3-right</div>
+        <div class="middle">3-middle</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: Dominique Wei
+ * @Date: 2020-05-25 01:39:30
+ * @LastEditTime: 2020-07-07 16:39:32
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .messageTopbar_title_wrap {
+                flex-grow: 1;
+                font-size: 20px;
+                margin-right: 80px;
+                line-height: 60px;
+                display: inline-flex;
+        }
+        .ProfileItemDisplay {
+            display: inline-flex;
+            margin: 0px 4px;
+        }
+        .ProfileItemDisplay_wrap,
+        .profileItem_Name {
+            display: flex;
+            margin-right: 4px;
+            margin-left: 4px;
+        }
+        .ProfileItemDisplay::after {
+        content: '';
+        width: 1px;
+        height: 12px;
+        background-color: #7c7c7c;
+        margin: auto 5px;
+        }
+        .ProfileItemDisplay:last-child::after{
+            display: none;
+        }
+        .messageTopbar_title_online_status {
+                margin-left: 4px;
+                width: 16px;
+                height: 16px;
+        }
+        .ProfileItemDisplay_wrap {
+            display: flex;
+        }
+        .ProfileItemDisplay_wrap img {
+            height: 18px;
+            width: auto;
+        }
+        .ProfileItemDisplay_wrap img,
+        .ProfileItemDisplay_wrap p {
+                margin: auto auto;
+        }
+        .ProfileItemDisplay_wrap p {
+        font-family: Helvetica;
+        font-size: 12px;
+        color: #7c7c7c;
+        letter-spacing: 0;
+        line-height: 18px;
+        }
+        .ProfileItemDisplay_wrap img , .ProfileItemDisplay_wrap .messageTopbar_title_customedItem_text, .ProfileItemDisplay_wrap .split{
+            font-family: Helvetica;
+            font-size: 12px;
+            color: #7c7c7c;
+            letter-spacing: 0;
+            line-height: 18px;
+            margin: auto auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="messageTopbar_title_wrap">
+        <div class="messageTopbar_title_wrap">
+            <div id="current_ConvasationName">dominik</div>
+            <div>
+                <img src ='./离开电脑状态html/人名后的标icon切图/pc@2x.png'  class="messageTopbar_title_online_status" />
+            </div>
+            <div class="ProfileItemDisplay" v-for = 'item in this.res'>
+                <div class="ProfileItemDisplay_wrap">
+                  <img :src="item.picUrl" class="messageTopbar_customed_item" />
+                </div>
+                <div class="ProfileItemDisplay_wrap">
+                  <p>{{ item.val }}</p>
+                </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+  var vue = new Vue({
+      el: '#app',
+      created(){
+        this.getProfileInfoShow()
+      },
+      data(){
+          return {
+            res:[],
+            topbarData: {
+                profileDisplayItems: {
+                "isShowDuty":false, // 职务
+                "isShowOfficePhone":false, // 办公号
+                "isShowEmail":true,
+                "isShowMobile":false,
+                "isShowTel":false,
+                "isShowParty":true
+                },
+                profileInfo: {
+                    mobile: '13282278668', //手机号
+                    phone: '806692',
+                    emailAddr: '12321312',
+                    position:'炒粉选手',
+                    isHideMobile: true,
+                    isHideEnglishName: true,
+                    isHideEmail: false,
+                    isHidePhone: false,
+                    isHidePosition: false,
+                    allDepartmentInfo:[
+                        {
+                            'departmentChain': "testcorp941598"
+                        },
+                        {
+                            'departmentChain': "呵呵呵"
+                        }
+                    ],
+                }
+            },
+            host:'/Users/dominiquewei/Documents/Coding/intern/feature-v3-mac/',
+            attr : {
+                'isShowDuty': {
+                    'isHide': 'isHidePosition',
+                    'name' : 'position',
+                    'picUrl': 'static/image/icons/department@2x.png'
+                },
+                'isShowEmail': {
+                    'isHide': 'isHideEmail',
+                    'name' : 'emailAddr',
+                    'picUrl': 'static/image/icons/email@2x.png'
+                },
+                'isShowMobile': { // 手机
+                    'isHide': 'isHideMobile',
+                    'name': 'mobile',
+                    'picUrl': 'static/image/icons/phone@2x.png'
+                },     
+                'isShowTel': { //座机
+                    'isHide': 'isHidePhone',
+                    'name' : 'phone',
+                    'picUrl': 'static/image/icons/mobile@2x.png'
+                }, //座机,
+                'isShowParty' : {
+                    'name' : 'allDepartmentInfo',
+                    'picUrl': 'static/image/icons/department@2x.png'
+                } 
+            },
+          }
+      },
+    methods: {
+    isShowItem(userinfo, displayItem) {
+    return (
+        userinfo && userinfo[this.attr[displayItem].name]
+    )
+    },
+    getProfileInfoShow() {
+    const displayItems = this.topbarData.profileDisplayItems
+    if (displayItems && this.topbarData.profileInfo) {
+        this.res = []
+        for (const displayItem in displayItems) {
+        if (displayItems[displayItem]) {
+            // 判断是否需要隐藏
+            let obj = {}
+            const isHide = this.isShowItem(this.topbarData.profileInfo, displayItem)
+            // 显示条件 !isHide + 值存在
+            obj.val = this.topbarData.profileInfo[this.attr[displayItem].name] instanceof Array ? this.topbarData.profileInfo[this.attr[displayItem].name] : this.topbarData.profileInfo[this.attr[displayItem].name][0]['departmentChain']
+            console.log(obj.val)
+            if (obj) {
+            obj.label = this.attr[displayItem].name
+            obj.picUrl = this.attr[displayItem].picUrl
+            this.res.push(obj)
+            }
+        }
+        }
+        console.log('getProfileInfoShow this.res:', this.res)
+        } else {
+            this.res = []
+            this.topbarData.profileInfo = {}
+        }
+    },
+}
+      
+})
+</script>

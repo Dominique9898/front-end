@@ -1,0 +1,27 @@
+<style>
+    .coin {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        animation: rotate 5s linear;
+        background-color: goldenrod;
+        border-radius: 50%;
+        }
+
+.coin:hover {
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+</style>
+
+
+<div class="coin"></div>

@@ -1,0 +1,79 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: Dominique Wei
+ * @Date: 2020-03-01 17:30:05
+ * @LastEditTime: 2020-03-01 18:35:34
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border-left:2px solid #fff; 
+            border-right:2px solid #fff; 
+            height:50px; 
+            width:250px; 
+            position:relative;
+            top: 100px;
+            left: 100px;
+        }
+        .box::before{
+            content:"";
+            position:absolute;
+            right:0;
+            width:25%; 
+            height:2px;
+            background-color: #fff;
+        }
+        .box::after{
+            content:"";
+            position:absolute;
+            left:0;
+            width:25%; 
+            height:2px;
+            top: 0px;
+            background-color: #fff;
+        }
+        .left-bottom{
+            position: absolute;
+            height: 2px;
+            background-color:#fff;
+            width: 10%;
+            bottom: 0;
+        }
+        .right-bottom{
+            position: absolute;
+            height: 2px;
+            background-color: #fff;
+            width: 10%;
+            bottom: 0;
+            right: 0;
+        }
+        .redline{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 25%;
+            height: 2px;
+            background-color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class = "container" style="background:blue; height: 800px;display: flex">
+        <div class="box">
+            <h3 style=" background: transparent; display:block; height:20px; width:auto; position:absolute; left:50%; top:-35px;transform: translate(-50%);color: #fff;">全国经销商</h3>
+            <h6 style=" background: transparent; display:block; height:20px; width:150px;position:absolute; left:50%;top:15px;transform: translate(-50%);color: #fff;">NATIONAL DISTRIBUTOR</h6>
+            <div class="redline"></div>
+            <div class="left-bottom"></div>
+            <div class="right-bottom"></div>
+        </div>
+    </div>
+</body>
+</html>

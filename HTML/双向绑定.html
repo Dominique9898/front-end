@@ -1,0 +1,20 @@
+<body>
+    <input type="text" id="text">
+    <label id="txt"></label>
+</body>
+<script>
+    obj = {};
+    var line = document.getElementById('text')
+    line.addEventListener('keyup', function (e) {
+        obj.txt = e.target.value
+    })
+    Object.defineProperty(obj,'txt',{
+        get:function(){
+            return obj;
+        },
+        set:function(newValue){
+            document.getElementById('text').value = newValue;
+            document.getElementById('txt').innerHTML = newValue;
+        }
+    })
+</script>
