@@ -1,0 +1,83 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: Dominique Wei
+ * @Date: 2020-07-25 14:24:45
+ * @LastEditTime: 2020-07-25 15:04:29
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: burlywood;
+            width: 100%;
+            height: 100rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search_wrap{
+            display: flex;
+            height: 40px;
+            width: 50%;
+            border-radius: 99px;
+        }
+        .search_button_wrap {
+            border-top-right-radius: 99px;
+            border-bottom-right-radius: 99px;
+            height: 40px;
+            width: 200px;
+            background-color:skyblue;
+            position: relative;
+        }
+        .search_input_wrap {
+            border-top-left-radius: 99px;
+            border-bottom-left-radius: 99px;
+            height: 40px;
+            width: 100%;
+            background-color: white;
+            
+        }
+        .search_input {
+            height: 40px;
+            margin-left: 18px;
+            display: flex;
+            align-items: center;
+        }
+        .search_input_text {
+          width: 100%;
+          font-size: 16px;
+          border: none;
+          outline:none
+        }
+        .search_button_text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search_wrap">
+            <div class="search_input_wrap">
+                <div class="search_input">
+                    <input type="text" class="search_input_text">
+                </div>
+            </div>
+            <div class="search_button_wrap">
+                <div class="search_button_text">
+                    <span style="color: white; font-size: 16px;">
+                        搜索一下
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
