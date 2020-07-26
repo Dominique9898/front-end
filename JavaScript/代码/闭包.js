@@ -3,34 +3,23 @@
  * @version: 
  * @Author: Dominique Wei
  * @Date: 2020-03-29 12:17:47
- * @LastEditTime: 2020-03-29 12:52:13
+ * @LastEditTime: 2020-07-25 15:21:38
  */
 
- //闭包 闭包找到的是同一地址中父级函数中对应变量最终的值
-function add()
-{
-    let a = 0;
-    return  function plus(){
-        a++;
-        return a;
+function User () {
+    let username, password
+    
+    function login (user, pwd) {
+        username = user
+        password = pwd
+        console.log ('登录成功')
+    }
+
+    return obj = {
+        login: login
     }
 }
-// var _plus = add();
-var _plus = add()    //add()返回的是函数plus()
-// var cnt = _plus() //_add返回的是a
-for(var i=0;i<10;i++)
-{
-    _plus()
-}
-var cnt = _plus();
-console.log(cnt)
 
-
-// var a = 0
-// function add()
-// {
-//     a++;
-// }
-// add()
-// add()
-// console.log(a)
+var p1 = new User()
+p1.login(123, 456)
+console.log(p1.username);
