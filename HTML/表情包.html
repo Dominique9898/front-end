@@ -1,0 +1,85 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: Dominique Wei
+ * @Date: 2020-07-28 17:13:51
+ * @LastEditTime: 2020-07-30 23:56:21
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title> 
+    <style>
+      .emoji {
+        position: absolute;
+        width: 500px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 25px 0 rgba(46, 49, 62, 0.2);
+        border-radius: 4px;
+        z-index: 100;
+      }
+      .emoji-container {
+        height: 214px;
+        padding: 14px;
+        position: relative;
+        z-index: 10;
+        overflow-y: overlay;
+        overflow-x: hidden;
+      }
+      .emoji-custome{
+        width: 70px;
+        height: 70px;
+        margin-right: 2px;
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+        display: inline-block;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+      .emoji-custome:first-child {
+        border: 1px dashed grey;
+        background: url('./static/image/emotion/emoticon_normal.png') no-repeat center;
+        background-size:48px 48px;
+      }
+    </style>
+</head>
+<body>
+    <div id="app">
+      <div class="emoji" >
+        <div class="emoji-container">
+          <img class="emoji-custome">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+          <img class="emoji-custome" src="./static/image/emotion/hhh.jpg">
+        </div>
+        </div>
+    </div>    
+</body>
+</html>
+<script type="module">
+  var vue = new Vue({
+      el:'#app',
+
+})
+</script>
